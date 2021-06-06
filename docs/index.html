@@ -1,4 +1,3 @@
-<!doctype html>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
 
@@ -21,7 +20,6 @@
 		color: #1367a7;
 		text-decoration: none;
 	}
-
 	a:hover {
 		color: #208799;
 	}
@@ -34,21 +32,32 @@
 		transform: scale(1.05);
 	}
 
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
 	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
 		box-shadow:
-		        0 0 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		        5px 5px 0 0 #fff, /* The second layer */
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
 		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		        10px 10px 0 0 #fff, /* The third layer */
+		        10px 10px 0 0px #fff, /* The third layer */
 		        10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-		        15px 15px 0 0 #fff, /* The fourth layer */
+		        15px 15px 0 0px #fff, /* The fourth layer */
 		        15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-		        20px 20px 0 0 #fff, /* The fifth layer */
+		        20px 20px 0 0px #fff, /* The fifth layer */
 		        20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-		        25px 25px 0 0 #fff, /* The fifth layer */
+		        25px 25px 0 0px #fff, /* The fifth layer */
 		        25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
 		margin-left: 10px;
 		margin-right: 45px;
+		transition: transform .2s;
+	}
+
+	.layered-paper-big:hover {
+		transform: scale(1.05);
 	}
 
 	hr {
@@ -64,18 +73,18 @@
 
 <html lang="en">
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4J6410VJR"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-		  gtag('config', 'G-M4J6410VJR');
+			gtag('config', 'G-M4J6410VJR');
 		</script>
-
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 		<title>A Survey on Deep Domain Adaptation for LiDAR Perception</title>
 		<link rel="icon" href="https://larissa.triess.eu/survey-uda-lidar/images/transfer_learning.svg">
@@ -88,69 +97,77 @@
 
 	<body>
 		<br>
+		<!-------------------------------- HEADLINE -------------------------------->
 		<div style="text-align: center;">
+			<!-------------------------------- TITLE -------------------------------->
 			<span style="font-size:36px">A Survey on Deep Domain Adaptation for LiDAR Perception</span><br><br>
 			<br>
 
+			<!-------------------------------- AUTHORS -------------------------------->
 			<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
 				<tr>
-				<td style="width: 400px">
+				<td>
 					<span style="font-size:20px"><a href="https://larissa.triess.eu">Larissa T. Triess</a><sup>1,2</sup></span>
 				</td>
-				<td style="width: 400px">
+				<td>
 					<span style="font-size:20px"><a href="https://github.com/mella30">Mariella Dreissig</a><sup>1</sup></span>
 				</td>
-				<td style="width: 400px">
+				<td>
 					<span style="font-size:20px"><a href="https://github.com/risteon">Christoph B. Rist</a><sup>1</sup></span>
 				</td>
-				<td style="width: 400px">
+				<td>
 					<span style="font-size:20px"><a href="https://www.aifb.kit.edu/web/J._Marius_Z%C3%B6llner">J. Marius Zöllner</a><sup>2,3</sup></span>
 				</td>
 				</tr>
 			</table>
 			<br>
 
+			<!-------------------------------- AFFILIATIONS -------------------------------->
 			<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
 				<tr>
-				<td style="width: 400px">
-					<span style="font-size:18px"><sup>1</sup>Mercedes Benz AG,<br>Stuttgart</span>
+				<td>
+					<span style="font-size:18px"><sup>1</sup>Mercedes-Benz AG<br>Stuttgart (Germany)</span>
 				</td>
-				<td style="width: 400px">
-					<span style="font-size:18px"><sup>2</sup>Karlsruhe Institute of Technology,<br>Karlsruhe</span>
+				<td>
+					<span style="font-size:18px"><sup>2</sup>Karlsruhe Institute of Technology<br>Karlsruhe (Germany)</span>
 				</td>
-				<td style="width: 400px">
-					<span style="font-size:18px"><sup>3</sup>Research Center for Information Technology, Karlsruhe</span>
+				<td>
+					<span style="font-size:18px"><sup>3</sup>Research Center for Information Technology<br>Karlsruhe (Germany)</span>
 				</td>
 				</tr>
 			</table>
 			<br>
 
+			<!-------------------------------- CONFERENCE -------------------------------->
 			<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
 				<tr>
-				<td style="width: 400px">
+				<td>
 					<span style="font-size:18px">In 2021 IEEE Intelligent Vehicles Symposium (IV)<br>Workshop on Autonomy at Scale</span>
 				</td>
 				</tr>
 			</table>
 			<br>
 
-			<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
+			<!-------------------------------- RESOURCES -------------------------------->
+			<!-- <table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
 				<tr>
-				<td style="width: 200px">
-					<span style="font-size:24px"><a href='https://arxiv.org/abs/TODO'>[Paper]</a></span>
+				<td>
+					<span style="font-size:24px"><a href='https://arxiv.org/pdf/TODO.pdf'>[Paper]</a></span>
 					&emsp;&emsp;
-					<span style="font-size:24px"><a href='./resources/triess2021iv.bib'>[BibTeX]</a></span>
+					<span style="font-size:24px"><a href='https://larissa.triess.eu/assets/pdf/triess2021iv_poster.pdf'>[Poster]</a></span>
 				</td>
-			</table>
+				</tr>
+			</table> -->
 		</div>
-		<br>
-		<br>
 
+		<br>
+		<br>
+		<!-------------------------------- TEASER IMAGE -------------------------------->
 		<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
             <tr>
                 <td style="padding: 10px">
                     <a href="images/transfer_learning.svg">
-                        <img class="img-zoom" src="images/transfer_learning.svg" width="85%" alt="icon-networksize"/>
+                        <img class="img-zoom" src="images/transfer_learning.svg" width="60%" alt="transferlearning"/>
                     </a>
                 </td>
             </tr>
@@ -158,27 +175,27 @@
 
 		<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
 			<tr>
-				<td>
-					<span style="font-size:18px">
+				<center>
+					<td style="font-size:14px">
 						<i>
-						<b>Overview of Transfer Learning</b>:<br>
-						Domain adaptation is a type of transductive transfer learning where the same task is performed in different, but related domains with annotated data only in the source domain.
-						(Figure adapted from [<a href='https://ieeexplore.ieee.org/document/5288526'>Pan2010</a>]).
+							<b>Overview of Transfer Learning</b>:<br>
+							Domain adaptation is a type of transductive transfer learning where the same task is performed in different, but related domains with annotated data only in the source domain.
+							(Figure adapted from [<a href='https://ieeexplore.ieee.org/document/5288526'>Pan2010</a>]).
 						</i>
-					</span>
-				</td>
+					</td>
+				</center>
 			</tr>
 		</table>
-		<br>
-		<br>
 
-		<!----------------------------------------------------------------------------->
+		<br>
+		<br>
+		<hr><!-------------------------------- ABSTRACT -------------------------------->
 
 		<div id="abstract" style="text-align: center;"><h1>Abstract</h1></div>
 
 		<table style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">
 			<tr>
-			<td style="width: 400px">
+			<td>
 				Scalable systems for automated driving have to reliably cope with an open-world setting.
 				This means, the perception systems are exposed to drastic domain shifts, like changes in weather conditions, time-dependent aspects, or geographic regions.
 				Covering all domains with annotated data is impossible because of the endless variations of domains and the time-consuming and expensive annotation process.
@@ -192,19 +209,61 @@
 			</td>
 			</tr>
 		</table>
+
 		<br>
 		<br>
-
-		<hr><!------------------------------------------------------------------------->
-
+		<hr><!-------------------------------- PAPER -------------------------------->
 		<div id="paper" style="text-align: center;"><h1>Paper</h1></div>
 
 		<div style="text-align: center;">
 			<span><a href="https://arxiv.org/abs/TODO"><img class="layered-paper-big" style="height:250px" src="./images/paper_thumb.png" alt=""/></a></span>
+			<br><br><br><br>
+			<span style="font-size:20pt">Paper: <i>coming soon</i></span>
+			<!-- <span style="font-size:20pt">Paper: <a href="https://arxiv.org/abs/TODO">[ArXiv]</a> <a href="https://ieeexplore.ieee.org/document/TODO">[IEEEXplore]</a></span> -->
 			<br><br>
-			<span style="font-size:20pt"><a href="https://arxiv.org/abs/TODO"><br>[Paper]</a></span>
-			<span style="font-size:20pt"><a href="./resources/triess2021iv.bib">[BibTeX]</a></span>
+			<span style="font-size:18pt">Citation: <a href="./resources/triess2021iv.bib">[BibTeX]</a></span>
 		</div>
+
+		<br>
+		<br>
+		<hr><!-------------------------------- CONTRIBUTIONS -------------------------------->
+
+		<div id="contributions" style="text-align: center;"><h1>Contributions</h1></div>
+
+		<table style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">
+			<tr>
+			<td>
+				The focus of this paper is to give an overview on DA methods that specifically address deep learning based LiDAR perception and discuss their unique features, use-cases, and challenges.
+				The paper is organized as follows:
+			</td>
+			</tr>
+			<tr>
+			<td>
+				Section 2 gives an introduction to common LiDAR perception tasks and the terminology of DA.
+				The section also includes an overview on typical baselines, datasets, DA applications, and metrics.
+				Section 3 categorizes common DA approaches for LiDAR.
+				In Section 4, we discuss different aspects of the presented approaches and give an outlook on interesting research directions.
+			</td>
+			</tr>
+		</table>
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<hr><!-------------------------------- ACKNOWLEDGEMENTS -------------------------------->
+
+		<div id="acknowledgements" style="text-align: center;"><h1>Acknowledgements</h1></div>
+
+		<table style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">
+			<tr>
+			<td>
+				This work was presented at the <i>Workshop on Autonomy at Scale</i> (WS52), IV2021.
+				The research leading to these results is funded by the German Federal Ministry for Economic Affairs and Energy within the project "KI Delta Learning" (Förderkennzeichen 19A19013A).
+			</td>
+			</tr>
+		</table>
+
 		<br>
 		<br>
 
