@@ -249,6 +249,180 @@
 		<br>
 		<br>
 		<br>
+		<hr><!-------------------------------- METHODS -------------------------------->
+
+		<div id="methods" style="text-align: center;"><h1>Methods</h1></div>
+
+		<!-------------------------------- METHODS: Domain-Invariant Data Representation -------------------------------->
+		<div id="methods" style="text-align: center;"><h3>Domain-Invariant Data Representations</h3></div>
+
+		<table style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">
+			<tr>
+				<td>
+					A domain-invariant representation is a hand-crafted approach to move different domains into a common representation.
+					Figure 3 shows that this approach is basically a data pre-processing after which a regular perception pipeline starts.
+					It is mostly used to account for the sensor-to-sensor domain shift and receives special attention in LiDAR research.
+					Available sensors vary in their resolution and sampling patterns while resulting point clouds are additionally influenced by the mounting position and the recording rate of the sensor.
+					Consequently, the acquired data vary considerably in their statistics and distributions.
+					This data distribution mismatch makes it unfeasible to apply the same model to different sensors in a naive way.
+					Therefore, many simple DA methods either align the sampling differences in 2D space or use representations in 3D space that are less prone to domain differences.
+				</td>
+			</tr>
+		</table>
+
+		<br>
+
+		<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding: 10px">
+                    <a href="images/method_invariant_data_train.svg">
+                        <img class="img-zoom" src="images/method_invariant_data_train.svg" width="70%" alt="invariantdatatrain"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+				<td style="font-size:14px">
+					(a) Training
+				</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px">
+                    <a href="images/method_invariant_data_test.svg">
+                        <img class="img-zoom" src="images/method_invariant_data_test.svg" width="70%" alt="invariantdatatest"/>
+                    </a>
+                </td>
+            </tr>
+			<tr>
+				<td style="font-size:14px">
+					(b) Testing
+				</td>
+			</tr>
+			<tr>
+				<center>
+					<td style="font-size:14px">
+						<i>
+							<b>Figure 3</b>:
+							The data from the source domain at train-time (a) and the data from the target domain at test-time (b) are both converted into a hand-crafted common representation prior to being fed to the perception pipeline.
+						</i>
+					</td>
+				</center>
+			</tr>
+		</table>
+
+		<!-------------------------------- METHODS: Domain Mapping -------------------------------->
+		<div id="methods" style="text-align: center;"><h3>Domain Mapping</h3></div>
+
+		<table style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">
+			<tr>
+				<td>
+					Domain mapping aims at transferring the data of one domain to another domain and is most often used in sim-to-real and dataset-to-dataset applications.
+					Figure 4 shows a typical setup for domain mapping.
+					Annotated source data is usually transformed to appear like target data, creating a labeled pseudo-target dataset.
+					With the transformed data, a perception network is trained which can then be applied to target data at test time.
+					For images, domain mapping is usually done adversarially and at pixel-level in the form of image-to-image translation with conditional GANs.
+					Similar principles apply to LiDAR data, however, there also exists a number of methods that do not rely on adversarial training.
+				</td>
+			</tr>
+		</table>
+
+		<br>
+
+		<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding: 10px">
+                    <a href="images/method_domain_mapping_train.svg">
+                        <img class="img-zoom" src="images/method_domain_mapping_train.svg" width="70%" alt="domainmappingtrain"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+				<td style="font-size:14px">
+					(a) Training
+				</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px">
+                    <a href="images/method_domain_mapping_test.svg">
+                        <img class="img-zoom" src="images/method_domain_mapping_test.svg" width="42%" alt="domainmappingtest"/>
+                    </a>
+                </td>
+            </tr>
+			<tr>
+				<td style="font-size:14px">
+					(b) Testing
+				</td>
+			</tr>
+            <tr>
+				<center>
+					<td style="font-size:14px">
+						<i>
+							<b>Figure 4</b>:
+							This is the most commonly used configuration for domain mapping.
+							During training (a) the labeled source data is conditionally (dashed line) mapped to the target domain where a perception network is trained.
+							At test time (b), the trained perception network can directly be applied to the target data.
+						</i>
+					</td>
+				</center>
+			</tr>
+		</table>
+
+		<!-------------------------------- METHODS: Domain-Invariant Feature Learning -------------------------------->
+		<div id="methods" style="text-align: center;"><h3>Domain-Invariant Feature Learning</h3></div>
+
+		<table style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">
+			<tr>
+				<td>
+					State-of-the-art methods in domain-invariant feature learning employ a training procedure that encourages the model to learn a feature representation that is independent of the domain.
+					This is done by finding or constructing a common representation space for the source and target domain.
+					In contrast to domain-invariant data representations, these approaches are not hand-crafted but use learned features.
+					If the classifier model performs well on the source domain using a domain-invariant feature representation, then the classifier may generalize well to the target domain.
+					The basic principle is depicted in Figure 5.
+				</td>
+			</tr>
+		</table>
+
+		<br>
+
+		<table style="width: 960px; text-align: center; margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding: 10px">
+                    <a href="images/method_invariant_features_train.svg">
+                        <img class="img-zoom" src="images/method_invariant_features_train.svg" width="70%" alt="invariantfeaturestrain"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+				<td style="font-size:14px">
+					(a) Training
+				</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px">
+                    <a href="images/method_invariant_features_test.svg">
+                        <img class="img-zoom" src="images/method_invariant_features_test.svg" width="70%" alt="invariantfeaturestest"/>
+                    </a>
+                </td>
+            </tr>
+			<tr>
+				<td style="font-size:14px">
+					(b) Testing
+				</td>
+			</tr>
+            <tr>
+				<center>
+					<td style="font-size:14px">
+						<i>
+							<b>Figure 5</b>:
+							A feature extractor network and an alignment component learn a domain-invariant feature encoding (a).
+							At test time (b), the domain-invariant feature extractor is applied to the target data.
+						</i>
+					</td>
+				</center>
+			</tr>
+		</table>
+
+		<br>
+		<br>
 		<hr><!-------------------------------- ACKNOWLEDGEMENTS -------------------------------->
 
 		<div id="acknowledgements" style="text-align: center;"><h1>Acknowledgements</h1></div>
