@@ -1,5 +1,15 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<script type="text/javascript">
+	// Copy text to clipboard
+	function copyToClipboard(element) {
+		var $temp = $("<textarea>");
+		$("body").append($temp);
+		$temp.val($(element).text()).select();
+		document.execCommand("copy");
+		$temp.remove();
+	}
+</script>
 
 <style type="text/css">
 	body {
@@ -69,6 +79,15 @@
     table td, table td * {
         vertical-align: top;
     }
+
+	pre code {
+		background-color: #eee;
+		border: 1px solid #999;
+		display: block;
+		padding: 20px;
+		font-family: monospace;
+	}
+
 </style>
 
 <html lang="en">
@@ -218,8 +237,25 @@
 			<span><a href="https://arxiv.org/abs/2106.02377"><img class="layered-paper-big" style="height:250px" src="./images/paper_thumb.png" alt=""/></a></span>
 			<br><br><br><br>
 			<span style="font-size:20pt">Paper: <a href="https://arxiv.org/abs/2106.02377">[ArXiv]</a> <!-- <a href="https://ieeexplore.ieee.org/document/TODO">[IEEEXplore]</a> --></span>
-			<br><br>
-			<span style="font-size:18pt">Citation: <a href="./resources/triess2021iv.bib">[BibTeX]</a></span>
+		</div>
+		<br>
+		<div style="text-align: center;">
+			<span style="font-size:18pt">
+				Citation:
+				<button type="button" onclick="copyToClipboard('#bibtex')">Copy</button>
+				<button type="button" onclick="window.open('./resources/triess2021iv.bib')">Download</button>
+			</span>
+<!---------><pre><code id="bibtex" style="width: 960px; text-align: left; margin-left:auto; margin-right:auto">@inproceedings{triess2021iv,
+<!--------->  title = {{A Survey on Deep Domain Adaptation for LiDAR Perception}},
+<!--------->  author = {
+<!--------->    Triess, Larissa T. and
+<!--------->    Dreissig, Mariella and
+<!--------->    Rist, Christoph B. and
+<!--------->    Z\"ollner, J. Marius
+<!--------->  },
+<!--------->  booktitle = {Proc. IEEE Intelligent Vehicles Symposium (IV) Workshops},
+<!--------->  year = {2021}
+<!--------->}</code></pre>
 		</div>
 
 		<br>
